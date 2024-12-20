@@ -10,8 +10,26 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // Mock registration logic
-    console.log('Registering:', { name, email, password });
+
+    // Get the existing users from localStorage or initialize an empty array
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if the email already exists
+    if (users.find(user => user.email === email)) {
+      alert('User already exists!');
+      return;
+    }
+
+    // Create the new user object
+    const newUser = { name, email, password };
+
+    // Add new user to the users array
+    users.push(newUser);
+
+    // Save the updated users array back to localStorage
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // Redirect to the home page
     navigate('/home');
   };
 
@@ -42,6 +60,7 @@ function Register() {
         />
         <button type="submit">Register</button>
       </form>
+      <p>Already have an account? <a href="/">Sign In</a></p>
     </div>
   );
 }

@@ -9,9 +9,20 @@ function SignIn() {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    // Mock sign-in logic
-    console.log('Signing in:', { email, password });
-    navigate('/home');
+
+    // Get the users from localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Find the user with matching email and password
+    const user = users.find((user) => user.email === email && user.password === password);
+
+    if (user) {
+      // If user is authenticated, store user data in localStorage (session-like behavior)
+      localStorage.setItem('user', JSON.stringify(user));
+      navigate('/home');
+    } else {
+      alert('Invalid credentials!');
+    }
   };
 
   return (
@@ -34,6 +45,7 @@ function SignIn() {
         />
         <button type="submit">Sign In</button>
       </form>
+      <p>Don't have an account? <a href="/register">Register</a></p>
     </div>
   );
 }
