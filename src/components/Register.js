@@ -53,6 +53,7 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <p>Have an account? <a href="/">SignIn</a></p>
         <button type='submit'>Register</button>
       </form>
     </div>
