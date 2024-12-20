@@ -1,7 +1,6 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   padding: 20px;
   background-color: #f9f9f9;
 }
@@ -11,18 +10,54 @@
   color: #333;
 }
 
+/* Grid Layout for Metrics */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
 .metric {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
-  margin-bottom: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #333;
-  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.metric:hover {
-  background-color: #f0f8ff;
-  transition: background-color 0.3s;
+.metric-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Change Indicator for Stats */
+.metric-change {
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
+}
+
+.change-up {
+  color: green;
+  margin-right: 5px;
+}
+
+.change-down {
+  color: red;
+  margin-right: 5px;
 }

@@ -16,17 +16,15 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h1>Dashboard</h1>
-      {user ? (
-        <div className="user-info">
-          <img className='user-icon' src={usericon} alt="" />
-          <span className='username'>{user.email}</span>
-          <button className='logout-btn' onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <button  onClick={() => navigate('/')}>Sign In</button>
-      )}
-    </nav>
+  <h1>AnyTru</h1>
+  {user ? (
+    <div className="user-info">
+      <img className='user-icon' src={usericon} alt="User" />
+      <span className='username'>{user.email}</span>
+      <button className='logout-btn' onClick={handleLogout}>Logout</button>
+    </div>
+  ) : null} {/* Removed Sign In button for logged-in users */}
+</nav>
   );
 }
 
